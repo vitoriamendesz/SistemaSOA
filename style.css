@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f4f6f8;
+  color: #1e293b;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+header h1 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.bloco {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+  border: 1px solid #e2e8f0;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #111827;
+}
+
+input {
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  width: calc(50% - 12px);
+  margin-bottom: 8px;
+  background-color: #f8fafc;
+}
+
+input:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+button {
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+canvas {
+  width: 100% !important;
+  max-height: 300px !important;
+  margin-top: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin-top: 12px;
+}
+
+th, td {
+  border: 1px solid #e5e7eb;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f1f5f9;
+  font-weight: 600;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 40px;
+}
