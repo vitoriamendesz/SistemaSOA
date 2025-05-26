@@ -1,4 +1,6 @@
 # Sistema SOA – Tendência de Nomes no Brasil 🇧🇷
+Vitoria Gabriele Mendonça Mendes 22137969-2
+Lucas Roncon Gonçalves 22014352-2
 
 Este projeto foi desenvolvido como parte da atividade prática da disciplina de Arquitetura de Software, com o objetivo de aplicar os princípios da arquitetura orientada a serviços (SOA) na construção de um sistema que consome a API pública de nomes do IBGE.
 
