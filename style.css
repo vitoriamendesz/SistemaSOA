@@ -19,56 +19,47 @@ header {
 }
 
 header h1 {
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   font-weight: 600;
   color: #2563eb;
 }
 
 main {
-  max-width: 800px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
 .bloco {
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
+  margin-bottom: 30px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  margin-bottom: 24px;
   border: 1px solid #e2e8f0;
 }
 
 h2 {
-  font-size: 1.2rem;
-  margin-bottom: 12px;
-  color: #111827;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
 }
 
-input {
-  padding: 8px 12px;
-  font-size: 0.95rem;
-  border-radius: 6px;
+input, select {
+  padding: 10px;
+  margin-bottom: 10px;
   border: 1px solid #cbd5e1;
-  width: calc(50% - 12px);
-  margin-bottom: 8px;
+  border-radius: 6px;
   background-color: #f8fafc;
-}
-
-input:focus {
-  border-color: #2563eb;
-  outline: none;
+  font-size: 0.95rem;
 }
 
 button {
-  padding: 8px 14px;
-  font-size: 0.95rem;
+  padding: 10px 16px;
   background-color: #2563eb;
-  color: #fff;
+  color: white;
   border: none;
   border-radius: 6px;
-  margin-left: 8px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
 button:hover {
@@ -77,26 +68,24 @@ button:hover {
 
 canvas {
   width: 100% !important;
-  max-height: 300px !important;
-  margin-top: 16px;
+  height: auto !important;
+  margin-top: 20px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 15px;
   font-size: 0.9rem;
-  margin-top: 12px;
 }
 
 th, td {
   border: 1px solid #e5e7eb;
-  padding: 8px;
-  text-align: left;
+  padding: 10px;
 }
 
 th {
   background-color: #f1f5f9;
-  font-weight: 600;
 }
 
 footer {
