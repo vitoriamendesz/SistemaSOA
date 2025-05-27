@@ -1,4 +1,3 @@
-// Mapeamento de siglas de UFs para códigos do IBGE
 const ufMap = {
   "AC": 12, "AL": 27, "AP": 16, "AM": 13,
   "BA": 29, "CE": 23, "DF": 53, "ES": 32,
@@ -11,29 +10,40 @@ const ufMap = {
 
 async function buscarNome() {
   const nome = document.getElementById('nome').value;
-  if (!nome) {
-    alert('Digite um nome para buscar!');
+  const decadaInicio = parseInt(document.getElementById('decadaInicio').value);
+  const decadaFim = parseInt(document.getElementById('decadaFim').value);
+
+  if (!nome || isNaN(decadaInicio) || isNaN(decadaFim)) {
+    alert('Preencha o nome e o intervalo de décadas.');
     return;
   }
+  if (decadaInicio > decadaFim) {
+    alert('A década inicial deve ser menor ou igual à final.');
+    return;
+  }
+
+  document.getElementById('resultado').innerHTML = 'Carregando...';
 
   const resposta = await fetch(`https://servicodados.ibge.gov.br/api/v2/censos/nomes/${nome}?localidade=all`);
   const dados = await resposta.json();
 
-  const periodos = dados[0].res.map(item => item.periodo);
-  const frequencias = dados[0].res.map(item => item.frequencia);
+  const filtrados = dados[0].res.filter(item => {
+    const decada = parseInt(item.periodo.substring(0, 4));
+    return decada >= decadaInicio && decada <= decadaFim;
+  });
+
+  const periodos = filtrados.map(item => item.periodo);
+  const frequencias = filtrados.map(item => item.frequencia);
 
   const ctx = document.getElementById('graficoNome').getContext('2d');
-
-  if (window.graficoAtual) {
-    window.graficoAtual.destroy();
-  }
+  if (window.graficoAtual) window.graficoAtual.destroy();
 
   window.graficoAtual = new Chart(ctx, {
     type: 'line',
     data: {
       labels: periodos,
       datasets: [{
-        label: `Frequência do nome "${nome}"`,
+        label: `Frequência do nome "${nome}" entre ${decadaInicio} e ${decadaFim}`,
         data: frequencias,
         fill: false,
         borderColor: 'blue',
@@ -56,7 +66,7 @@ async function buscarTop3() {
   const ufCodigo = ufMap[uf];
 
   if (!ufCodigo) {
-    alert('UF inválida. Use siglas como SP, RJ, MG...');
+    alert('UF inválida. Selecione uma opção da lista.');
     return;
   }
 
@@ -107,10 +117,7 @@ async function compararNomes() {
 
   window.graficoComparacaoAtual = new Chart(ctx, {
     type: 'line',
-    data: {
-      labels,
-      datasets
-    },
+    data: { labels, datasets },
     options: {
       responsive: true,
       plugins: {
