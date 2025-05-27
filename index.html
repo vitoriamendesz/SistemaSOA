@@ -2,81 +2,40 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sistema SOA - Tendência de Nomes</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOA - Tendência de Nomes no Brasil</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <header>
-    <h1>Sistema SOA - Tendência de Nomes no Brasil</h1>
-  </header>
+  <div class="container">
+    <h1>SOA - Análise de Tendência de Nomes</h1>
 
-  <main>
-    <section class="bloco">
-      <h2>Evolução de um Nome</h2>
-      <input type="text" id="nome" placeholder="Digite um nome" />
-
-      <div style="margin: 10px 0;">
-        <label for="decadaInicio">Início:</label>
-        <select id="decadaInicio">
-          <option value="1930">1930</option><option value="1940">1940</option>
-          <option value="1950">1950</option><option value="1960">1960</option>
-          <option value="1970">1970</option><option value="1980">1980</option>
-          <option value="1990">1990</option><option value="2000">2000</option>
-          <option value="2010">2010</option>
-        </select>
-        <label for="decadaFim">Fim:</label>
-        <select id="decadaFim">
-          <option value="1930">1930</option><option value="1940">1940</option>
-          <option value="1950">1950</option><option value="1960">1960</option>
-          <option value="1970">1970</option><option value="1980">1980</option>
-          <option value="1990">1990</option><option value="2000">2000</option>
-          <option value="2010">2010</option>
-        </select>
-      </div>
-
-      <button onclick="buscarNome()">Buscar</button>
-      <div id="resultado"></div>
-      <canvas id="graficoNome"></canvas>
+    <section>
+      <h2>1. Evolução do ranking de um nome</h2>
+      <input type="text" id="nome1" placeholder="Nome" />
+      <input type="number" id="inicio1" placeholder="Década Início (ex: 1970)" />
+      <input type="number" id="fim1" placeholder="Década Fim (ex: 2000)" />
+      <button onclick="buscarEvolucaoNome()">Buscar</button>
+      <canvas id="graficoEvolucao"></canvas>
     </section>
 
-    <section class="bloco">
-      <h2>Top 3 Nomes por UF</h2>
-      <select id="uf">
-        <option value="">Selecione uma UF</option>
-        <option value="AC">Acre - AC</option><option value="AL">Alagoas - AL</option>
-        <option value="AP">Amapá - AP</option><option value="AM">Amazonas - AM</option>
-        <option value="BA">Bahia - BA</option><option value="CE">Ceará - CE</option>
-        <option value="DF">Distrito Federal - DF</option><option value="ES">Espírito Santo - ES</option>
-        <option value="GO">Goiás - GO</option><option value="MA">Maranhão - MA</option>
-        <option value="MT">Mato Grosso - MT</option><option value="MS">Mato Grosso do Sul - MS</option>
-        <option value="MG">Minas Gerais - MG</option><option value="PA">Pará - PA</option>
-        <option value="PB">Paraíba - PB</option><option value="PR">Paraná - PR</option>
-        <option value="PE">Pernambuco - PE</option><option value="PI">Piauí - PI</option>
-        <option value="RJ">Rio de Janeiro - RJ</option><option value="RN">Rio Grande do Norte - RN</option>
-        <option value="RS">Rio Grande do Sul - RS</option><option value="RO">Rondônia - RO</option>
-        <option value="RR">Roraima - RR</option><option value="SC">Santa Catarina - SC</option>
-        <option value="SP">São Paulo - SP</option><option value="SE">Sergipe - SE</option>
-        <option value="TO">Tocantins - TO</option>
-      </select>
-      <button onclick="buscarTop3()">Buscar por UF</button>
-      <table id="tabelaUF">
-        <thead><tr><th>Nome</th><th>Frequência</th></tr></thead>
-        <tbody></tbody>
-      </table>
+    <section>
+      <h2>2. Top 3 nomes em uma localidade</h2>
+      <select id="uf"></select>
+      <button onclick="buscarTopNomesUF()">Buscar</button>
+      <table id="tabelaLocalidade"></table>
     </section>
 
-    <section class="bloco">
-      <h2>Comparar Dois Nomes</h2>
-      <input type="text" id="nome1" placeholder="Nome 1" />
-      <input type="text" id="nome2" placeholder="Nome 2" />
+    <section>
+      <h2>3. Comparação de dois nomes</h2>
+      <input type="text" id="nome2a" placeholder="Nome 1" />
+      <input type="text" id="nome2b" placeholder="Nome 2" />
       <button onclick="compararNomes()">Comparar</button>
       <canvas id="graficoComparacao"></canvas>
     </section>
-  </main>
+  </div>
 
-  <footer><p>Desenvolvido para fins educacionais — Sistema SOA © 2025</p></footer>
   <script src="script.js"></script>
 </body>
 </html>
